@@ -1,6 +1,7 @@
 import LeftSide from "@/components/LeftSide";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
+import RightSide from "@/components/RightSide";
 
 export default function Home() {
   return (
@@ -18,8 +19,10 @@ export default function Home() {
           <div className="hidden xl:inline-flex w-32 h-full fixed left-0 bottom-0">
             <LeftSide />
           </div>
-          <div></div>
-          <div></div>
+          <div className="h-[88vh] mx-auto p-4">Middle</div>
+          <div className="hidden xl:inline-flex w-32 h-full fixed right-0 bottom-0">
+            <RightSide />
+          </div>
         </div>
       </main>
     </>
