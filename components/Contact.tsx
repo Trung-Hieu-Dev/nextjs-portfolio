@@ -1,4 +1,5 @@
 import React from "react";
+import CustomButton from "@/components/UI/CustomButton";
 
 const Contact = () => {
   return (
@@ -17,12 +18,9 @@ const Contact = () => {
         would give me a chance, please send me your message!
       </p>
       <a href="mailto:dangtrunghieusg@gmail.com">
-        <button
-          className="w-40 h-14 border border-textGreen mt-6 font-titleFont text-sm text-textGreen tracking-wider
-        rounded-md hover:bg-hoverColor duration-300"
-        >
-          Say Hello!
-        </button>
+        <CustomButton height="h-14" width="w-40">
+          Say Hello
+        </CustomButton>
       </a>
     </section>
   );
