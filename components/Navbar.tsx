@@ -85,7 +85,7 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <a href="/assets/Dang_Trung_Hieu_Front_End_cv.pdf" target="_blank">
+      <a href="/assets/Dang_Trung_Hieu_Frontend_cv.pdf" target="_blank">
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
