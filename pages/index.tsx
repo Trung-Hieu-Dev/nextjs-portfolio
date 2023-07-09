@@ -10,6 +10,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Archive from "@/components/Archive";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,7 +21,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Head>
-      <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-scroll">
+      <main
+        className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll
+       scrollbar scrollbar-track-textDark/20 scrollbar-thumb-textDark/60"
+      >
         <Navbar />
         {/* Main Content   */}
         <div className="w-full h-[88vh] xl:flex items-center justify-between gap-20">
@@ -46,6 +50,7 @@ export default function Home() {
             {/* Contact  */}
             <Contact />
             {/* Footer  */}
+            <Footer />
           </div>
           <motion.div
             initial={{ opacity: 0 }}

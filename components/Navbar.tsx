@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -6,6 +6,27 @@ import { motion } from "framer-motion";
 import { logo } from "@/public/assets";
 
 const Navbar = () => {
+  const ref = useRef<string | any>("");
+
+  const handleScroll = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
+    const href = event.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const element = document.getElementById(targetId);
+    element?.scrollIntoView({
+      behavior: "smooth",
+    });
+
+    // Update the class name of the clicked link
+    const links = document.querySelectorAll(".nav-link");
+    links.forEach((link) => {
+      link.classList.remove("active");
+    });
+    event.currentTarget.classList.add("active");
+  };
+
   return (
     <div className="w-full shadow-navbarShadow h-20 lg:h-[12vh] sticky top-0 z-50 bg-bodyColor px-4">
       <div className="max-w-container h-full mx-auto py-1 font-titleFont flex items-center justify-between">
@@ -21,7 +42,9 @@ const Navbar = () => {
           <ul className="flex text-[16px] gap-7">
             <Link
               href="#home"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link"
+              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link"
+              onClick={handleScroll}
             >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
@@ -33,7 +56,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="#about"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link"
+              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link"
+              onClick={handleScroll}
             >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
@@ -45,7 +70,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="#experience"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link"
+              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link"
+              onClick={handleScroll}
             >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
@@ -57,7 +84,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="#projects"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link"
+              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link"
+              onClick={handleScroll}
             >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
@@ -69,7 +98,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="#contact"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link"
+              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link"
+              onClick={handleScroll}
             >
               <motion.li
                 initial={{ y: -10, opacity: 0 }}
@@ -85,7 +116,8 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.5 }}
-              className="px-4 py-2 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor duration-300"
+              className="px-4 py-2 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor
+              duration-300"
             >
               Resume
             </motion.button>
