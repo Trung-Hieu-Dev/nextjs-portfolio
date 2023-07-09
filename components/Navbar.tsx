@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 import { logo } from "@/public/assets";
 
+const navLinks = ["home", "about", "experience", "projects", "contact"];
+
 const Navbar = () => {
+  // handle scroll into view
   const ref = useRef<string | any>("");
 
   const handleScroll = (
@@ -40,76 +43,34 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden mdl:inline-flex items-center gap-7">
           <ul className="flex text-[16px] gap-7">
-            <Link
-              href="#home"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
-              duration-300 nav-link"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1 }}
+            {navLinks.map((item, index) => (
+              <Link
+                key={index}
+                href={"#" + item}
+                className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
+              duration-300 nav-link capitalize"
+                onClick={handleScroll}
               >
-                Home
-              </motion.li>
-            </Link>
-            <Link
-              href="#about"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
-              duration-300 nav-link"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.1 }}
-              >
-                <span className="text-textGreen">01.</span>About
-              </motion.li>
-            </Link>
-            <Link
-              href="#experience"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
-              duration-300 nav-link"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.2 }}
-              >
-                <span className="text-textGreen">02.</span>Experience
-              </motion.li>
-            </Link>
-            <Link
-              href="#projects"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
-              duration-300 nav-link"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.3 }}
-              >
-                <span className="text-textGreen">03.</span>Project
-              </motion.li>
-            </Link>
-            <Link
-              href="#contact"
-              className="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer
-              duration-300 nav-link"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.3 }}
-              >
-                <span className="text-textGreen">04.</span>Contact
-              </motion.li>
-            </Link>
+                {index >= 1 ? (
+                  <motion.li
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.1, delay: 0.1 * index }}
+                  >
+                    <span className="text-textGreen">01.</span>
+                    {item}
+                  </motion.li>
+                ) : (
+                  <motion.li
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.1, delay: 0.1 * index }}
+                  >
+                    {item}
+                  </motion.li>
+                )}
+              </Link>
+            ))}
           </ul>
           <a href="/assets/Dang_Trung_Hieu_Front_End_cv.pdf" target="_blank">
             <motion.button
