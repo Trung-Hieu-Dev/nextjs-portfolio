@@ -23,8 +23,10 @@ const Navbar = () => {
   const ref = useRef<string | any>("");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const handleMobileMenu = () => {
-    setShowMobileMenu(true);
+  const handleMobileMenu = (event: any) => {
+    if (event.target.contains(ref.current)) {
+      setShowMobileMenu(true);
+    }
   };
 
   // handle scroll into view
@@ -85,7 +87,12 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <a href="/assets/Dang_Trung_Hieu_Front_End_cv.pdf" target="_blank">
+      <a
+        href="/assets/Dang_Trung_Hieu_Frontend_cv.pdf"
+        target="_blank"
+        ref={(node) => (ref.current = node)}
+        onClick={handleMobileMenu}
+      >
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -158,7 +165,6 @@ const Navbar = () => {
         {/*  show mobile menu */}
         {showMobileMenu && (
           <div
-            ref={(node) => (ref.current = node)}
             className="absolute mdl:hidden top-0 right-0 w-full h-screen bg-black bg-opacity-50 flex flex-col items-end"
             onClick={() => setShowMobileMenu(false)}
           >

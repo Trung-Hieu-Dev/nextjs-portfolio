@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import ArchiveCard from "@/components/ArchiveCard";
+import CustomButton from "@/components/UI/CustomButton";
 
 const projects = [
   {
@@ -54,6 +55,14 @@ const projects = [
 const Archive = () => {
   const [showMore, setShowMore] = useState(false);
 
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
+
+  const handleShowLess = () => {
+    setShowMore(false);
+  };
+
   // @ts-ignore
   return (
     <section className="max-w-contentContainer mx-auto px-4 py-24">
@@ -101,21 +110,13 @@ const Archive = () => {
       </div>
       <div className="mt-12 flex items-center justify-center">
         {showMore ? (
-          <button
-            className="w-36 h-12 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor
-        duration-300"
-            onClick={() => setShowMore(false)}
-          >
+          <CustomButton height="h-12" width="w-36" onClick={handleShowLess}>
             Show Less
-          </button>
+          </CustomButton>
         ) : (
-          <button
-            className="w-36 h-12 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor
-        duration-300"
-            onClick={() => setShowMore(true)}
-          >
+          <CustomButton height="h-12" width="w-36" onClick={handleShowMore}>
             Show More
-          </button>
+          </CustomButton>
         )}
       </div>
     </section>
