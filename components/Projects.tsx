@@ -60,7 +60,7 @@ const projects = [
       "Vercel Deployment",
     ],
     githubUrl: "https://github.com/Trung-Hieu-Dev/nextjs-portfolio",
-    deployUrl: "#",
+    deployUrl: "https://nextjs-portfolio-taupe-phi.vercel.app/",
   },
 ];
 
