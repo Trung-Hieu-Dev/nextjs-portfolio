@@ -1,11 +1,15 @@
 import React from "react";
-import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import { TbBrandGithub } from "react-icons/tb";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import SectionTitle from "@/components/SectionTitle";
 
 // images
-import { nextjsBlogImg, vuejsMusicPlayerImg } from "@/public/assets";
+import {
+  nextjsBlogImg,
+  nextjsPortfolioImg,
+  vuejsMusicPlayerImg,
+} from "@/public/assets";
 
 const projects = [
   {
@@ -41,6 +45,22 @@ const projects = [
     ],
     githubUrl: "https://github.com/Trung-Hieu-Dev/nextjs-personal-blog",
     deployUrl: "https://nextjs-personal-blog-ten.vercel.app/",
+  },
+  {
+    id: "prj-3",
+    title: "NextJS Portfolio",
+    description:
+      "The Portfolio was built by NextJS. I was trying to make it as clean as possible",
+    img: nextjsPortfolioImg,
+    tech: [
+      "NextJS",
+      "ReactJS",
+      "Tailwind CSS",
+      "Farmer Motion",
+      "Vercel Deployment",
+    ],
+    githubUrl: "https://github.com/Trung-Hieu-Dev/nextjs-portfolio",
+    deployUrl: "#",
   },
 ];
 
